@@ -1,0 +1,168 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="528" height="400" viewBox="0 0 528 400">
+<rect width="100%" height="100%" fill="#FFFFFF"/>
+<g id="brightening" transform="translate(20 20)" fill="none" stroke="#16150F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="12" cy="12" r="3"/>
+  <path d="M12 5V7M12 17V19M5 12H7M17 12H19M7.05 7.05L8.46 8.46M15.54 15.54L16.95 16.95M7.05 16.95L8.46 15.54M15.54 8.46L16.95 7.05"/>
+</g>
+<g id="hydration" transform="translate(84 20)" fill="none" stroke="#16150F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M12 4C9 8 6.5 11.5 6.5 14.5A5.5 5.5 0 0 0 17.5 14.5C17.5 11.5 15 8 12 4Z"/>
+</g>
+<g id="firming" transform="translate(148 20)" fill="none" stroke="#16150F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M5 16C8 12 10 10 12 10C14 10 16 12 19 16"/>
+</g>
+<g id="pore" transform="translate(212 20)" fill="none" stroke="#16150F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="12" cy="12" r="6.2"/><circle cx="12" cy="12" r="1.4" fill="#16150F" stroke="none"/>
+</g>
+<g id="blemish" transform="translate(276 20)" fill="none" stroke="#16150F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M12 3L19 6V11C19 15.5 16 19 12 21C8 19 5 15.5 5 11V6L12 3Z"/>
+  <circle cx="12" cy="11" r="1.6" fill="#16150F" stroke="none"/>
+</g>
+<g id="soothing" transform="translate(340 20)" fill="none" stroke="#16150F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M4 9.5C6 8 8 8 10 9.5C12 11 14 11 16 9.5C18 8 20 8 20 8"/>
+  <path d="M4 14.5C6 13 8 13 10 14.5C12 16 14 16 16 14.5C18 13 20 13 20 13"/>
+</g>
+<g id="all-skin" transform="translate(404 20)" fill="none" stroke="#16150F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M4 9C7 6 9 12 12 9C15 6 17 12 20 9"/>
+  <circle cx="7" cy="16" r="1" fill="#16150F" stroke="none"/><circle cx="12" cy="17" r="1" fill="#16150F" stroke="none"/><circle cx="17" cy="16" r="1" fill="#16150F" stroke="none"/>
+</g>
+<g id="dry" transform="translate(468 20)" fill="none" stroke="#16150F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M12 4C9 8 6.5 11.5 6.5 14.5A5.5 5.5 0 0 0 17.5 14.5C17.5 11.5 15 8 12 4Z"/>
+  <path d="M12 9L10.5 12.5L13 13.5L11.5 17"/>
+</g>
+<g id="oily" transform="translate(20 84)" fill="none" stroke="#16150F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M12 5C9.5 8.5 7.5 11.5 7.5 14A4.5 4.5 0 0 0 16.5 14C16.5 11.5 14.5 8.5 12 5Z"/>
+  <path d="M9.7 13.2C9.7 11.8 10.4 10.9 11.1 10.3" stroke-width="1.3"/>
+</g>
+<g id="combination" transform="translate(84 84)" fill="none" stroke="#16150F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M12 4C9 8 6.5 11.5 6.5 14.5A5.5 5.5 0 0 0 17.5 14.5C17.5 11.5 15 8 12 4Z"/>
+  <path d="M12 4.5V19.5" stroke-dasharray="1.6 2.2"/>
+</g>
+<g id="sensitive" transform="translate(148 84)" fill="none" stroke="#16150F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M12 19C12 19 4.5 14.5 4.5 9.5C4.5 7 6.5 5.5 8.5 5.5C10 5.5 11.3 6.3 12 7.5C12.7 6.3 14 5.5 15.5 5.5C17.5 5.5 19.5 7 19.5 9.5C19.5 14.5 12 19 12 19Z"/>
+</g>
+<g id="rice" transform="translate(212 84)" fill="none" stroke="#16150F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+  <ellipse cx="12" cy="12" rx="3" ry="7.3" transform="rotate(25 12 12)"/>
+  <path d="M12 6.5V17.5" transform="rotate(25 12 12)" stroke-width="1.1"/>
+</g>
+<g id="centella" transform="translate(276 84)" fill="none" stroke="#16150F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M12 5C7 6 5 10 6 15C10 16 12 19 12 19C12 19 14 16 18 15C19 10 17 6 12 5Z"/>
+  <path d="M12 8V17M9.3 11L12 13M14.7 11L12 13" stroke-width="1.1"/>
+</g>
+<g id="niacinamide" transform="translate(340 84)" fill="none" stroke="#16150F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M12 4L18.5 8V16L12 20L5.5 16V8L12 4Z"/>
+</g>
+<g id="hyaluronic-acid" transform="translate(404 84)" fill="none" stroke="#16150F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M12 4C9 8 6.5 11.5 6.5 14.5A5.5 5.5 0 0 0 17.5 14.5C17.5 11.5 15 8 12 4Z"/>
+  <circle cx="10.3" cy="13.8" r="0.9" fill="#16150F" stroke="none"/><circle cx="13.7" cy="13.8" r="0.9" fill="#16150F" stroke="none"/><circle cx="12" cy="15.9" r="0.9" fill="#16150F" stroke="none"/>
+</g>
+<g id="ceramide" transform="translate(468 84)" fill="none" stroke="#16150F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+  <rect x="3.3" y="7" width="8" height="4.4" rx="1"/><rect x="12.7" y="7" width="8" height="4.4" rx="1"/>
+  <rect x="8" y="12.6" width="8" height="4.4" rx="1"/>
+</g>
+<g id="vitamin-c" transform="translate(20 148)" fill="none" stroke="#16150F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="12" cy="12" r="7.5"/>
+  <path d="M12 4.5V19.5"/><path d="M5.5 8.2L18.5 15.8"/><path d="M18.5 8.2L5.5 15.8"/>
+</g>
+<g id="vitamin-e" transform="translate(84 148)" fill="none" stroke="#16150F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M12 5C9 5 6.5 8.5 6.5 13C6.5 16.5 9 19 12 19C15 19 17.5 16.5 17.5 13C17.5 8.5 15 5 12 5Z"/>
+  <circle cx="12" cy="12.5" r="1.3" fill="#16150F" stroke="none"/>
+</g>
+<g id="retinol" transform="translate(148 148)" fill="none" stroke="#16150F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M15 4.5C11 5.5 8.5 9 8.5 13C8.5 17 11 19.5 15 19.5C11.5 18 9.7 15.2 9.7 12C9.7 8.8 11.5 6 15 4.5Z"/>
+</g>
+<g id="peptide" transform="translate(212 148)" fill="none" stroke="#16150F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+  <rect x="3.3" y="8.5" width="9" height="6" rx="3"/><rect x="11.7" y="9.5" width="9" height="6" rx="3"/>
+</g>
+<g id="collagen" transform="translate(276 148)" fill="none" stroke="#16150F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M4 8C6 6 8 10 10 8C12 6 14 10 16 8C18 6 20 10 20 10"/>
+  <path d="M4 15C6 13 8 17 10 15C12 13 14 17 16 15C18 13 20 17 20 17"/>
+</g>
+<g id="pdrn" transform="translate(340 148)" fill="none" stroke="#16150F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M8 4C8 4 16 7 16 12C16 17 8 20 8 20"/>
+  <path d="M16 4C16 4 8 7 8 12C8 17 16 20 16 20"/>
+  <path d="M9.5 7H14.5M8.3 12H15.7M9.5 17H14.5" stroke-width="1.1"/>
+</g>
+<g id="snail" transform="translate(404 148)" fill="none" stroke="#16150F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M9.3 6.3A4 4 0 1 1 6.5 13"/>
+  <path d="M9.3 8.8A1.8 1.8 0 1 1 8 12"/>
+  <path d="M6 13.5C6.8 16.2 9.8 18.2 13.7 18.2C16.2 18.2 18.1 17 19.1 15.4"/>
+  <path d="M19.1 15.4C19.1 15.4 18.8 14.1 19.6 13.4"/>
+  <path d="M19.1 15.4C19.6 15.1 20.4 14.9 20.8 15.4"/>
+</g>
+<g id="squalane" transform="translate(468 148)" fill="none" stroke="#16150F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M12 4.5C8.5 9 6 12.5 6 15.5A6 6 0 0 0 18 15.5C18 12.5 15.5 9 12 4.5Z"/>
+</g>
+<g id="salicylic-acid" transform="translate(20 212)" fill="none" stroke="#16150F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M6 18C6 10 10 5 19 4C18 13 13 18 6 18Z"/>
+  <path d="M8 16C11 12 14 9 17 6" stroke-width="1.2"/>
+</g>
+<g id="glycolic-acid" transform="translate(84 212)" fill="none" stroke="#16150F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M12 21V6.5"/>
+  <path d="M9 8.5Q12 9.5 15 8.5M9 13Q12 14 15 13M9 17.5Q12 18.5 15 17.5" stroke-width="1.3"/>
+  <path d="M12 6.5C12 6.5 10 4.3 7.3 4.8C8.3 7 10.4 7.6 12 6.5Z" fill="#16150F" stroke="none"/>
+  <path d="M12 6.5C12 6.5 14 4.3 16.7 4.8C15.7 7 13.6 7.6 12 6.5Z" fill="#16150F" stroke="none"/>
+</g>
+<g id="azelaic-acid" transform="translate(148 212)" fill="none" stroke="#16150F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M12 21V9"/>
+  <ellipse cx="9.3" cy="8" rx="1.6" ry="2.6" transform="rotate(-25 9.3 8)"/>
+  <ellipse cx="14.7" cy="8" rx="1.6" ry="2.6" transform="rotate(25 14.7 8)"/>
+  <ellipse cx="12" cy="5" rx="1.6" ry="2.6"/>
+</g>
+<g id="arbutin" transform="translate(212 212)" fill="none" stroke="#16150F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="12" cy="14" r="5.5"/>
+  <path d="M12 8.5C12 8.5 10.5 6 12 4.5C13.5 6 12 8.5 12 8.5Z" fill="#16150F" stroke="none"/>
+</g>
+<g id="adenosine" transform="translate(276 212)" fill="none" stroke="#16150F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="12" cy="12" r="1.6" fill="#16150F" stroke="none"/>
+  <ellipse cx="12" cy="12" rx="8" ry="3.4"/>
+  <ellipse cx="12" cy="12" rx="8" ry="3.4" transform="rotate(60 12 12)"/>
+</g>
+<g id="aloe" transform="translate(340 212)" fill="none" stroke="#16150F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M12 21C11 15 9 10 6 5C11 6 13.5 10 13.5 15C13.5 17 13 19 12 21Z"/>
+  <path d="M13.5 15C15.5 12 18 10 18 10C17 13.5 15 16 13.5 17"/>
+</g>
+<g id="green-tea" transform="translate(404 212)" fill="none" stroke="#16150F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M12 4C17 6 19 10 19 14C19 17 16 19.5 12 20C8 19.5 5 17 5 14C5 10 7 6 12 4Z"/>
+  <path d="M12 5.5V18.5" stroke-width="1.2"/>
+</g>
+<g id="ginseng" transform="translate(468 212)" fill="none" stroke="#16150F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M12 4V13"/>
+  <path d="M12 13C10.5 15 9 16.5 7.5 20M12 13C13.5 15 15 16.5 16.5 20M12 13C11 15.5 10.5 17.5 10.5 20M12 13C13 15.5 13.5 17.5 13.5 20"/>
+</g>
+<g id="panthenol" transform="translate(20 276)" fill="none" stroke="#16150F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M12 4.5C9 8.5 6.5 12 6.5 15A5.5 5.5 0 0 0 17.5 15C17.5 12 15 8.5 12 4.5Z"/>
+  <path d="M9.6 14.3C9.6 15.8 10.6 16.8 12 16.8" stroke-width="1.2"/>
+</g>
+<g id="charcoal" transform="translate(84 276)" fill="none" stroke="#16150F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+  <rect x="7" y="7" width="10" height="10" rx="1.5"/>
+  <path d="M7 12H17M12 7V17" stroke-width="1.1" opacity="0.55"/>
+</g>
+<g id="tea-tree" transform="translate(148 276)" fill="none" stroke="#16150F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M12 21V6"/>
+  <path d="M12 8C10 7 8.5 7.5 7.5 9C9 9.5 10.5 9 12 8Z" fill="#16150F" stroke="none"/>
+  <path d="M12 12C14 11 15.5 11.5 16.5 13C15 13.5 13.5 13 12 12Z" fill="#16150F" stroke="none"/>
+  <path d="M12 16C10 15 8.5 15.5 7.5 17C9 17.5 10.5 17 12 16Z" fill="#16150F" stroke="none"/>
+</g>
+<g id="morning" transform="translate(212 276)" fill="none" stroke="#16150F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="12" cy="12" r="4.3"/>
+  <path d="M12 3V5M12 19V21M3 12H5M19 12H21M5.64 5.64L7.05 7.05M16.95 16.95L18.36 18.36M5.64 18.36L7.05 16.95M16.95 7.05L18.36 5.64"/>
+</g>
+<g id="evening" transform="translate(276 276)" fill="none" stroke="#16150F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M20.5 13.9A8.5 8.5 0 1 1 10.4 3.6A6.8 6.8 0 0 0 20.5 13.9Z"/>
+</g>
+<g id="morning-evening" transform="translate(340 276)" fill="none" stroke="#16150F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="12" cy="12" r="7.6"/><path d="M12 7.8V12L15 14"/>
+</g>
+<g id="daily" transform="translate(404 276)" fill="none" stroke="#16150F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M5.5 12a6.5 6.5 0 0 1 11-4.7"/><path d="M17 4.8v3.4h-3.4"/>
+  <path d="M18.5 12a6.5 6.5 0 0 1-11 4.7"/><path d="M7 19.2v-3.4h3.4"/>
+</g>
+<g id="2-3-week" transform="translate(468 276)" fill="none" stroke="#16150F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+  <rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 9.5H20"/><path d="M8 3V6"/><path d="M16 3V6"/>
+  <circle cx="8.3" cy="14" r="1.1" fill="#16150F" stroke="none"/><circle cx="12" cy="14" r="1.1" fill="#16150F" stroke="none"/><circle cx="15.7" cy="14" r="1.1" fill="none" stroke-width="1.3"/>
+</g>
+<g id="1-2-week" transform="translate(20 340)" fill="none" stroke="#16150F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+  <rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 9.5H20"/><path d="M8 3V6"/><path d="M16 3V6"/>
+  <circle cx="9.4" cy="14" r="1.1" fill="#16150F" stroke="none"/><circle cx="14.6" cy="14" r="1.1" fill="none" stroke-width="1.3"/>
+</g>
+</svg>
