@@ -1,0 +1,12 @@
+{
+  "name": "okbeauty-price-tag",
+  "private": true,
+  "description": "OK Beauty 70x40mm 가격표 → A4 PDF",
+  "scripts": {
+    "setup": "pip3 install openpyxl && npx playwright install chromium",
+    "sample": "python3 make_tags.py examples/sample.xlsx -o out/sample.pdf"
+  },
+  "dependencies": {
+    "playwright": "^1.56.1"
+  }
+}

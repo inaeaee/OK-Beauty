@@ -1,0 +1,66 @@
+/* OK Beauty 가격표 · 가격 강조형 (바코드 없음) · 70 × 40 mm
+   모든 치수는 mm 단위 = 인쇄 실치수. */
+@page { size: A4; margin: 0; }
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: #fff; }
+body {
+  color: #111;
+  font-family: Arial, "Liberation Sans", Helvetica, "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", sans-serif;
+  -webkit-print-color-adjust: exact; print-color-adjust: exact;
+}
+
+.sheet {
+  width: 210mm; height: 297mm;
+  display: grid;
+  grid-template-columns: repeat(var(--cols), 70mm);
+  grid-auto-rows: 40mm;
+  column-gap: var(--gap); row-gap: var(--gap);
+  justify-content: center; align-content: start;
+  padding-top: var(--top); /* 마지막 장도 같은 위치에 찍히도록 위에서부터 채움 */
+  page-break-after: always; break-after: page;
+  overflow: hidden;
+}
+.sheet:last-child { page-break-after: auto; break-after: auto; }
+
+.tag {
+  position: relative;
+  width: 70mm; height: 40mm;
+  padding: 3mm 3.5mm 2.6mm;
+  display: flex; flex-direction: column;
+  overflow: hidden;
+}
+.cutlines .tag { outline: 0.1mm dashed #b8b8b8; outline-offset: -0.05mm; }
+
+/* 상단: 브랜드 로고 + 제품명 */
+.logo { height: 5mm; display: flex; align-items: center; flex: none; }
+.logo img { height: 100%; max-width: 34mm; object-fit: contain; object-position: left center; }
+.logo .brand-text {
+  font-size: 3.4mm; font-weight: 700; letter-spacing: 0.04em;
+  text-transform: uppercase; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 63mm;
+}
+.product {
+  margin-top: 1.2mm; flex: none;
+  font-size: 2.9mm; line-height: 1.12;
+  max-height: calc(2 * 1.12em);
+  overflow: hidden;
+  display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2;
+  word-break: keep-all; overflow-wrap: anywhere;
+}
+
+/* 하단: 라벨 + 취소선 기존가, 큰 멤버십가 */
+.prices { margin-top: auto; flex: none; }
+.meta { display: flex; align-items: flex-end; justify-content: space-between; height: 3.8mm; line-height: 1; }
+.label { font-size: 2.3mm; font-weight: 700; letter-spacing: 0.06em; }
+.regular {
+  font-size: 3.1mm; color: #555;
+  text-decoration: line-through; text-decoration-thickness: 0.25mm;
+  white-space: nowrap;
+}
+.member {
+  height: 16mm;
+  display: flex; align-items: flex-end;
+  font-size: 16mm; font-weight: 900; line-height: 1;
+  letter-spacing: -0.035em; white-space: nowrap;
+}
+.member .cur { font-size: 0.55em; align-self: flex-start; margin-top: 0.12em; margin-right: 0.04em; letter-spacing: 0; }
+.member .dec { font-size: 0.55em; align-self: flex-start; margin-top: 0.12em; letter-spacing: -0.02em; }
