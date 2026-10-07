@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>가격표 시안 4종</title>
+<style>
+:root {
+  --brand: #E63E6D;      /* 포인트컬러 (임시) — 상단 입력칸에서 바꿔보세요 */
+  --on-brand: #fff;      /* 포인트컬러 위 글자색 (자동 계산) */
+  --ink: #16150F;
+  --paper: #fff;
+  --page: #ecebe7;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--page); color: var(--ink); font-family: Arial, "Liberation Sans", Helvetica, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif; padding: 28px 16px 60px; }
+header { max-width: 1100px; margin: 0 auto 24px; display: flex; flex-wrap: wrap; gap: 12px 24px; align-items: end; justify-content: space-between; }
+header h1 { margin: 0; font-size: 20px; }
+header p { margin: 4px 0 0; font-size: 13px; color: #6a6860; }
+.picker { display: flex; gap: 8px; align-items: center; font-size: 13px; }
+.picker input[type=color] { width: 36px; height: 30px; border: 0; padding: 0; background: none; }
+.picker input[type=text] { width: 86px; height: 30px; font: 13px monospace; padding: 0 6px; border: 1px solid #c9c7c0; border-radius: 4px; }
+.swatch { width: 22px; height: 22px; border-radius: 50%; border: 2px solid #fff; box-shadow: 0 0 0 1px #c9c7c0; cursor: pointer; }
+.concept { max-width: 1100px; margin: 0 auto 36px; }
+.concept h2 { font-size: 16px; margin: 0 0 4px; }
+.concept h2 b { display: inline-block; min-width: 22px; height: 22px; line-height: 22px; text-align: center; border-radius: 4px; background: var(--ink); color: #fff; font-size: 12px; margin-right: 6px; }
+.concept .desc { font-size: 13px; color: #6a6860; margin: 0 0 12px; }
+.row { display: flex; flex-wrap: wrap; gap: 14px; }
+/* 화면에서 실치수 × 배율로 보기 */
+.zoom { zoom: var(--zoom, 1.6); }
+@media (max-width: 760px) { .zoom { --zoom: 1.15; } }
+
+/* ───────── 공통 가격표 ───────── */
+.tag { position: relative; width: 70mm; height: 40mm; overflow: hidden; background: var(--paper); color: var(--ink); box-shadow: 0 0.3mm 1.2mm rgba(0,0,0,.12); }
+.logo { height: 4.6mm; display: flex; align-items: center; }
+.logo img { height: 100%; max-width: 30mm; object-fit: contain; object-position: left center; }
+.logo .brand-text { font-size: 3mm; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; white-space: nowrap; }
+.on-brand .logo img { filter: brightness(0) invert(var(--logo-invert, 1)); }
+.product { font-size: 2.7mm; line-height: 1.14; max-height: calc(2 * 1.14em); overflow: hidden; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
+.price { font-weight: 900; line-height: .9; white-space: nowrap; letter-spacing: -.04em; display: flex; align-items: flex-start; }
+.price .cur, .price .dec { font-size: .5em; letter-spacing: -.01em; margin-top: .1em; }
+.price .cur { margin-right: .05em; }
+.regular { text-decoration: line-through; text-decoration-thickness: .22mm; white-space: nowrap; }
+.label { font-size: 1.9mm; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+
+/* A · 풀 컬러 — 전체 포인트컬러, 반전된 로고·가격 */
+.a { background: var(--brand); color: var(--on-brand); padding: 3mm 3.5mm 2.4mm; display: flex; flex-direction: column; }
+.a .product { margin-top: 1mm; opacity: .92; }
+.a .bottom { margin-top: auto; display: flex; align-items: flex-end; justify-content: space-between; gap: 2mm; }
+.a .price { font-size: 17mm; }
+.a .side { text-align: right; padding-bottom: 1.4mm; display: flex; flex-direction: column; gap: .8mm; align-items: flex-end; }
+.a .regular { font-size: 2.9mm; opacity: .75; }
+.a .label { border: .25mm solid currentColor; border-radius: 1mm; padding: .5mm 1.1mm .45mm; }
+
+/* B · 컬러 블록 — 상단 흰 영역, 하단 컬러 블록에 대각선 컷 */
+.b { display: flex; flex-direction: column; }
+.b .top { padding: 2.8mm 3.5mm 0; height: 15.5mm; }
+.b .product { margin-top: .9mm; }
+.b .block { position: absolute; left: 0; right: 0; bottom: 0; height: 24.5mm; background: var(--brand); color: var(--on-brand); clip-path: polygon(0 2.6mm, 100% 0, 100% 100%, 0 100%); padding: 4.2mm 3.5mm 2.2mm; display: flex; flex-direction: column; justify-content: flex-end; }
+.b .meta { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: .6mm; }
+.b .regular { font-size: 2.9mm; opacity: .8; }
+.b .price { font-size: 16mm; }
+
+/* C · 프레임 — 컬러 바탕에 흰 카드(로고·제품명), 가격은 바탕 위 */
+.c { background: var(--brand); color: var(--on-brand); padding: 2.2mm; display: flex; flex-direction: column; }
+.c .card { background: var(--paper); color: var(--ink); border-radius: 1.6mm; padding: 2mm 2.6mm 2.1mm; display: flex; gap: 2.6mm; align-items: center; height: 13.6mm; }
+.c .card .logo { flex: none; height: 9mm; width: 18mm; border-right: .2mm solid #ddd; padding-right: 2.4mm; }
+.c .card .logo img { max-width: 100%; }
+.c .card .logo .brand-text { font-size: 2.4mm; white-space: normal; line-height: 1.1; }
+.c .bottom { margin-top: auto; padding: 0 1.4mm .2mm; display: flex; align-items: flex-end; justify-content: space-between; }
+.c .price { font-size: 17mm; }
+.c .side { text-align: right; padding-bottom: 1.2mm; display: flex; flex-direction: column; gap: .7mm; align-items: flex-end; }
+.c .regular { font-size: 2.9mm; opacity: .8; }
+
+/* D · 스티커 — 흰 바탕 + 왼쪽 세로 컬러 띠 + 기울어진 가격 스티커 */
+.d { padding: 3mm 3.5mm 2.4mm 9mm; display: flex; flex-direction: column; }
+.d .stripe { position: absolute; left: 0; top: 0; bottom: 0; width: 6mm; background: var(--brand); color: var(--on-brand); display: flex; align-items: center; justify-content: center; }
+.d .stripe span { transform: rotate(-90deg); white-space: nowrap; font-size: 2mm; font-weight: 700; letter-spacing: .32em; }
+.d .product { margin-top: 1mm; }
+.d .bottom { margin-top: auto; display: flex; align-items: flex-end; justify-content: space-between; }
+.d .regular { font-size: 3mm; color: #7a786f; padding-bottom: 1.2mm; }
+.d .sticker { background: var(--brand); color: var(--on-brand); border-radius: 2.2mm; padding: 1.6mm 2.6mm 1.3mm; transform: rotate(-3deg); transform-origin: right bottom; margin: 0 .4mm .6mm 0; box-shadow: .5mm .6mm 0 var(--ink); }
+.d .price { font-size: 12.5mm; }
+
+.notes { max-width: 1100px; margin: 0 auto; font-size: 12px; color: #6a6860; line-height: 1.6; }
+</style>
+</head>
+<body>
+<header>
+  <div>
+    <h1>가격 강조형 시안 4종 · 70 × 40 mm</h1>
+    <p>같은 제품 3개(일반 · 긴 제품명 · 기존가 없음)로 비교합니다. 포인트컬러는 임시값이며 오른쪽에서 바꿀 수 있습니다.</p>
+  </div>
+  <div class="picker">
+    포인트컬러
+    <input type="color" id="c" value="#E63E6D">
+    <input type="text" id="hex" value="#E63E6D" maxlength="7" aria-label="HEX">
+    <span class="swatch" style="background:#E63E6D" data-c="#E63E6D"></span>
+    <span class="swatch" style="background:#FF6B35" data-c="#FF6B35"></span>
+    <span class="swatch" style="background:#2F5BFF" data-c="#2F5BFF"></span>
+    <span class="swatch" style="background:#C8F04A" data-c="#C8F04A"></span>
+    <span class="swatch" style="background:#16150F" data-c="#16150F"></span>
+  </div>
+</header>
+
+<section class="concept"><h2><b>A</b>풀 컬러</h2><p class="desc">가격표 전체를 포인트컬러로 채웁니다. 매대에서 가장 멀리서도 눈에 띕니다. 로고는 바탕색에 맞춰 흰색이나 검정으로 자동 반전됩니다.</p><div class="zoom"><div class="row" data-t="a"></div></div></section>
+<section class="concept"><h2><b>B</b>컬러 블록</h2><p class="desc">위쪽 흰 영역에는 브랜드와 제품을, 아래쪽 컬러 블록에는 가격을 둡니다. 살짝 기운 대각선이 움직임을 줍니다. 로고 색을 그대로 살릴 수 있습니다.</p><div class="zoom"><div class="row" data-t="b"></div></div></section>
+<section class="concept"><h2><b>C</b>프레임</h2><p class="desc">컬러 테두리 안에 흰 카드(로고 | 제품명)를 넣고, 가격은 컬러 바탕 위에 크게 둡니다. 정돈되고 고급스러운 느낌입니다.</p><div class="zoom"><div class="row" data-t="c"></div></div></section>
+<section class="concept"><h2><b>D</b>스티커</h2><p class="desc">흰 바탕에 왼쪽 세로 띠(MEMBER)를 두고, 가격은 기울어진 컬러 스티커에 담습니다. 잉크 소모가 가장 적고 경쾌한 느낌입니다.</p><div class="zoom"><div class="row" data-t="d"></div></div></section>
+
+<p class="notes">화면 확대 보기입니다(실제 크기 70×40mm). 글꼴은 Arial 계열 임시 글꼴입니다. 고르시면 그 시안으로 생성기(make_tags.py)와 피그마 템플릿을 바꿉니다.</p>
+
+<script>
+const ANUA = '../logos/anua.svg';
+
+const ITEMS = [
+  { brand: 'Anua', logo: ANUA, name: 'Rice Water Bright Cleansing Facial Wipes - Renew', regular: '29.00', member: ['19', '.00'] },
+  { brand: 'Beauty of Joseon', name: 'Relief Sun : Rice + Probiotics SPF50+ PA++++ Daily Sunscreen Value Pack Limited Edition', regular: '28.00', member: ['19', '.60'] },
+  { brand: 'COSRX', name: 'Advanced Snail 96 Mucin Power Essence', regular: null, member: ['123', '.10'] },
+];
+
+const esc = s => s.replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const logo = it => `<div class="logo">${it.logo ? `<img src="${it.logo}" alt="${esc(it.brand)}">` : `<span class="brand-text">${esc(it.brand)}</span>`}</div>`;
+const price = it => `<div class="price"><span class="cur">$</span>${it.member[0]}<span class="dec">${it.member[1]}</span></div>`;
+const reg = it => it.regular ? `<span class="regular">$${it.regular}</span>` : '';
+const name = it => `<div class="product">${esc(it.name)}</div>`;
+
+const T = {
+  a: it => `<div class="tag a on-brand">${logo(it)}${name(it)}<div class="bottom">${price(it)}<div class="side">${reg(it)}<span class="label">Member</span></div></div></div>`,
+  b: it => `<div class="tag b"><div class="top">${logo(it)}${name(it)}</div><div class="block on-brand"><div class="meta"><span class="label">Member price</span>${reg(it)}</div>${price(it)}</div></div>`,
+  c: it => `<div class="tag c"><div class="card">${logo(it)}${name(it)}</div><div class="bottom">${price(it)}<div class="side">${reg(it)}<span class="label">Member price</span></div></div></div>`,
+  d: it => `<div class="tag d"><div class="stripe on-brand"><span>MEMBER</span></div>${logo(it)}${name(it)}<div class="bottom">${reg(it) || '<span></span>'}<div class="sticker on-brand">${price(it)}</div></div></div>`,
+};
+document.querySelectorAll('[data-t]').forEach(row => { row.innerHTML = ITEMS.map(T[row.dataset.t]).join(''); });
+
+// 가격이 칸을 넘으면 글자를 줄인다
+function fit() {
+  document.querySelectorAll('.tag').forEach(tag => {
+    const p = tag.querySelector('.price'); p.style.fontSize = '';
+    const box = tag.getBoundingClientRect();
+    let size = parseFloat(getComputedStyle(p).fontSize);
+    const room = () => {
+      const side = tag.querySelector('.side');
+      const r = p.getBoundingClientRect(), z = p.closest('.sticker')?.getBoundingClientRect() || r;
+      const limit = side && side.offsetWidth ? side.getBoundingClientRect().left - 1 : box.right - 4;
+      return z.right <= limit;
+    };
+    while (!room() && size > 20) { size -= 1; p.style.fontSize = size + 'px'; }
+  });
+}
+
+// 포인트컬러 적용 + 대비에 맞춰 글자색 자동 선택
+function lum(hex) {
+  const v = [1, 3, 5].map(i => parseInt(hex.slice(i, i + 2), 16) / 255).map(c => c <= .03928 ? c / 12.92 : ((c + .055) / 1.055) ** 2.4);
+  return .2126 * v[0] + .7152 * v[1] + .0722 * v[2];
+}
+function setColor(hex) {
+  if (!/^#[0-9a-f]{6}$/i.test(hex)) return;
+  const L = lum(hex), white = 1.05 / (L + .05), black = (L + .05) / (lum('#16150F') + .05);
+  const r = document.documentElement.style;
+  r.setProperty('--brand', hex);
+  const useWhite = white >= 3 || white >= black; // 큰 글자 기준(3:1)을 넘으면 흰 글자 우선
+  r.setProperty('--on-brand', useWhite ? '#fff' : '#16150F');
+  r.setProperty('--logo-invert', useWhite ? 1 : 0);
+  document.getElementById('c').value = hex; document.getElementById('hex').value = hex.toUpperCase();
+  try { localStorage.setItem('okb-brand', hex); } catch (e) {}
+}
+document.getElementById('c').addEventListener('input', e => setColor(e.target.value));
+document.getElementById('hex').addEventListener('input', e => setColor(e.target.value.startsWith('#') ? e.target.value : '#' + e.target.value));
+document.querySelectorAll('.swatch').forEach(s => s.addEventListener('click', () => setColor(s.dataset.c)));
+const q = new URLSearchParams(location.search).get('color');
+let saved = null; try { saved = localStorage.getItem('okb-brand'); } catch (e) {}
+setColor(q ? '#' + q.replace('#', '') : saved || '#E63E6D');
+window.addEventListener('load', fit);
+</script>
+</body>
+</html>
