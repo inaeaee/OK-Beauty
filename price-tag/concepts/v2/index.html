@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>가격표 시안 v2</title>
+<link rel="stylesheet" href="fonts.css">
+<style>
+:root {
+  --brand: #E63E6D;          /* 포인트컬러 (임시) */
+  --on-brand: #fff;
+  --brand-deep: color-mix(in srgb, var(--brand) 78%, #000);
+  --ink: #16150F;
+  --page: #e9e7e1;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--page); color: var(--ink); font-family: Inter, Arial, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif; padding: 28px 16px 60px; }
+header { max-width: 1100px; margin: 0 auto 28px; display: flex; flex-wrap: wrap; gap: 12px 24px; align-items: end; justify-content: space-between; }
+header h1 { margin: 0; font-size: 20px; }
+header p { margin: 4px 0 0; font-size: 13px; color: #6a6860; }
+.picker { display: flex; gap: 8px; align-items: center; font-size: 13px; }
+.picker input[type=color] { width: 36px; height: 30px; border: 0; padding: 0; background: none; }
+.picker input[type=text] { width: 86px; height: 30px; font: 13px monospace; padding: 0 6px; border: 1px solid #c9c7c0; border-radius: 4px; }
+.swatch { width: 22px; height: 22px; border-radius: 50%; border: 2px solid #fff; box-shadow: 0 0 0 1px #c9c7c0; cursor: pointer; }
+.concept { max-width: 1100px; margin: 0 auto 40px; }
+.concept h2 { font-size: 16px; margin: 0 0 4px; }
+.concept h2 b { display: inline-block; min-width: 22px; height: 22px; line-height: 22px; text-align: center; border-radius: 4px; background: var(--ink); color: #fff; font-size: 12px; margin-right: 6px; }
+.concept .desc { font-size: 13px; color: #6a6860; margin: 0 0 12px; max-width: 760px; line-height: 1.5; }
+.row { display: flex; flex-wrap: wrap; gap: 14px; }
+.zoom { zoom: 1.6; }
+@media (max-width: 760px) { .zoom { zoom: 1.15; } }
+
+/* ───────── 공통 ───────── */
+.tag { position: relative; width: 70mm; height: 40mm; overflow: hidden; background: #fff; color: var(--ink); box-shadow: 0 .3mm 1.2mm rgba(0,0,0,.12); }
+.logo { height: 4.4mm; display: flex; align-items: center; }
+.logo img { height: 100%; max-width: 28mm; object-fit: contain; object-position: left center; }
+.logo .brand-text { font: 800 2.7mm/1 "Bricolage Grotesque", Inter, sans-serif; letter-spacing: .05em; text-transform: uppercase; white-space: nowrap; }
+.on-brand .logo img, .logo.on-brand img { filter: brightness(0) invert(var(--logo-invert, 1)); }
+.logo, .product, .head { flex: none; }
+.product { line-height: 1.12; max-height: 2lh; overflow: hidden; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
+.price { white-space: nowrap; display: flex; align-items: flex-start; line-height: .8; }
+.price .cur, .price .dec { font-size: .42em; line-height: 1; }
+.price .cur { margin: .06em .04em 0 0; }
+.price .dec { margin-top: .06em; }
+s, .strike { text-decoration: line-through; text-decoration-thickness: .2mm; }
+.mono { font-family: "JetBrains Mono", ui-monospace, monospace; }
+
+/* ═════ A · 에디토리얼 — 뷰티 매거진 표지처럼 ═════ */
+.A { background: var(--brand); color: var(--on-brand); padding: 3mm 3.6mm 2.6mm; display: flex; flex-direction: column; }
+.A .head { display: flex; justify-content: space-between; align-items: center; }
+.A .kicker { font: 600 1.6mm/1 Inter, sans-serif; letter-spacing: .28em; text-transform: uppercase; opacity: .9; }
+.A .product { font: italic 400 3.5mm/1.08 "Instrument Serif", Georgia, serif; margin-top: 1.3mm; max-width: 60mm; }
+.A .foot { margin-top: auto; border-top: .15mm solid currentColor; padding-top: 1.4mm; display: flex; align-items: flex-end; justify-content: space-between; gap: 2mm; }
+.A .price { font: 800 18mm "Fraunces", Georgia, serif; font-variation-settings: "opsz" 144; letter-spacing: -.035em; }
+.A .side { text-align: right; padding-bottom: .6mm; display: flex; flex-direction: column; align-items: flex-end; gap: .4mm; }
+.A .was { font: italic 400 3.2mm/1 "Instrument Serif", Georgia, serif; }
+.A .was s { font-style: normal; font-family: "Fraunces", serif; font-size: .82em; }
+.A .save { font: 600 1.6mm/1 Inter, sans-serif; letter-spacing: .2em; text-transform: uppercase; border: .18mm solid currentColor; border-radius: 4mm; padding: .5mm 1.3mm; }
+
+/* ═════ B · 쿠폰 티켓 — 절취선 + 절약액 스텁 ═════ */
+.B { background: transparent; box-shadow: none; filter: drop-shadow(0 .3mm .6mm rgba(0,0,0,.15)); }
+.B .ticket { position: absolute; inset: 0; display: grid; grid-template-columns: 48.5mm 1fr; color: var(--on-brand);
+  -webkit-mask: radial-gradient(circle 2.1mm at 48.5mm 0, #0000 98%, #000) top / 100% 51% no-repeat,
+                radial-gradient(circle 2.1mm at 48.5mm 100%, #0000 98%, #000) bottom / 100% 51% no-repeat;
+          mask: radial-gradient(circle 2.1mm at 48.5mm 0, #0000 98%, #000) top / 100% 51% no-repeat,
+                radial-gradient(circle 2.1mm at 48.5mm 100%, #0000 98%, #000) bottom / 100% 51% no-repeat; }
+.B .main { background: var(--brand); padding: 3mm 3mm 2.4mm 3.4mm; display: flex; flex-direction: column; min-width: 0; }
+.B .product { font: 500 2.6mm/1.12 "Bricolage Grotesque", Inter, sans-serif; margin-top: 1.1mm; }
+.B .label { margin-top: auto; font: 500 1.55mm/1 "JetBrains Mono", monospace; letter-spacing: .12em; opacity: .9; }
+.B .price { font: 800 15.5mm "Bricolage Grotesque", Inter, sans-serif; font-variation-settings: "opsz" 96; letter-spacing: -.045em; margin-top: 1mm; }
+.B .stub { background: var(--brand-deep); border-left: .3mm dashed color-mix(in srgb, var(--on-brand) 55%, transparent); padding: 3mm 1.6mm 2.4mm; display: flex; flex-direction: column; align-items: center; text-align: center; }
+.B .stub .k { font: 500 1.5mm/1 "JetBrains Mono", monospace; letter-spacing: .18em; }
+.B .stub .amt { font: 800 7.2mm/1 "Bricolage Grotesque", sans-serif; letter-spacing: -.04em; margin-top: 1.2mm; }
+.B .stub .pct { font: 600 2.2mm/1 "Bricolage Grotesque", sans-serif; margin-top: .6mm; opacity: .9; }
+.B .stub .was { margin-top: auto; font: 500 1.9mm/1.2 "JetBrains Mono", monospace; opacity: .85; }
+.B .stub .only { margin: auto 0; writing-mode: vertical-rl; transform: rotate(180deg); font: 800 4mm/1 "Bricolage Grotesque", sans-serif; letter-spacing: .06em; }
+.B .barcode-like { display: none; }
+
+/* ═════ C · 팝 스탬프 — 할인율 도장 ═════ */
+.C { background: var(--brand); color: var(--on-brand); padding: 3mm 3.4mm 2.2mm; display: flex; flex-direction: column; }
+.C .product { font: 600 2.7mm/1.1 "Bricolage Grotesque", Inter, sans-serif; margin-top: 1.1mm; max-width: 45mm; }
+.C .rrp { margin-top: auto; font: 500 2.5mm/1 "Bricolage Grotesque", sans-serif; opacity: .85; }
+.C .rrp b { font-weight: 800; letter-spacing: .08em; font-size: .8em; margin-right: .8mm; }
+.C .price { font: 800 19mm "Bricolage Grotesque", Inter, sans-serif; font-variation-settings: "opsz" 96; letter-spacing: -.05em; margin-top: .6mm; }
+.C .stamp { position: absolute; top: 2.2mm; right: 2.4mm; width: 17mm; height: 17mm; transform: rotate(-12deg); }
+.C .stamp svg { width: 100%; height: 100%; overflow: visible; }
+.C .stamp .disc { fill: #fff; }
+.C .stamp .ring { fill: none; stroke: var(--brand); stroke-width: .35; stroke-dasharray: .9 .7; }
+.C .stamp text { fill: var(--brand-ink, var(--brand)); font-family: "Bricolage Grotesque", sans-serif; }
+.C .stamp .around { font-size: 2.05px; font-weight: 700; letter-spacing: .5px; }
+.C .stamp .big { font-size: 5.6px; font-weight: 800; letter-spacing: -.25px; }
+.C .stamp .small { font-size: 1.9px; font-weight: 700; letter-spacing: .4px; }
+
+/* ═════ D · 멤버십 카드 — 회원카드를 그대로 가격표로 ═════ */
+.D { padding: 1.5mm; }
+.D .card { position: relative; height: 100%; border-radius: 2.6mm; overflow: hidden; color: var(--on-brand); padding: 2.6mm 3mm 2.3mm;
+  background: radial-gradient(120% 90% at 100% 0%, color-mix(in srgb, #fff 26%, transparent), transparent 55%), linear-gradient(135deg, var(--brand) 0%, var(--brand-deep) 100%);
+  display: flex; flex-direction: column; }
+.D .card::after { content: ""; position: absolute; right: -9mm; bottom: -14mm; width: 34mm; height: 34mm; border-radius: 50%; border: 4mm solid color-mix(in srgb, #fff 9%, transparent); }
+.D .head { display: flex; justify-content: space-between; align-items: center; }
+.D .tier { font: 500 1.45mm/1 "JetBrains Mono", monospace; letter-spacing: .2em; opacity: .9; }
+.D .product { font: 400 2.45mm/1.12 Inter, sans-serif; margin-top: 1.1mm; max-width: 56mm; opacity: .95; }
+.D .mid { margin-top: auto; display: flex; align-items: center; gap: 1.6mm; }
+.D .chip { width: 5.4mm; height: 4.1mm; border-radius: .8mm; background: linear-gradient(135deg, #f3e3b0, #c9a95c); position: relative; flex: none; }
+.D .chip::before { content: ""; position: absolute; inset: .9mm 1.6mm; border: .15mm solid rgba(0,0,0,.35); border-radius: .3mm; }
+.D .mid .lbl { font: 500 1.55mm/1 "JetBrains Mono", monospace; letter-spacing: .16em; }
+.D .mid .was { margin-left: auto; font: 500 2.2mm/1 "JetBrains Mono", monospace; opacity: .85; }
+.D .price { font: 900 15.5mm "Archivo", Inter, sans-serif; font-stretch: 125%; letter-spacing: -.03em; margin-top: 1.2mm; text-shadow: 0 .25mm 0 rgba(0,0,0,.18); position: relative; z-index: 1; }
+
+.notes { max-width: 1100px; margin: 0 auto; font-size: 12px; color: #6a6860; line-height: 1.6; }
+</style>
+</head>
+<body>
+<header>
+  <div>
+    <h1>가격 강조형 시안 v2 · 70 × 40 mm</h1>
+    <p>시안마다 콘셉트와 글꼴이 다릅니다. 같은 제품 3개(일반 · 긴 제품명 · 기존가 없음)로 비교하세요. 포인트컬러는 임시값입니다.</p>
+  </div>
+  <div class="picker">
+    포인트컬러
+    <input type="color" id="c" value="#E63E6D">
+    <input type="text" id="hex" value="#E63E6D" maxlength="7" aria-label="HEX">
+    <span class="swatch" style="background:#E63E6D" data-c="#E63E6D"></span>
+    <span class="swatch" style="background:#FF6B35" data-c="#FF6B35"></span>
+    <span class="swatch" style="background:#2F5BFF" data-c="#2F5BFF"></span>
+    <span class="swatch" style="background:#1F6B4F" data-c="#1F6B4F"></span>
+    <span class="swatch" style="background:#C8F04A" data-c="#C8F04A"></span>
+  </div>
+</header>
+
+<section class="concept"><h2><b>A</b>에디토리얼</h2><p class="desc">뷰티 매거진 표지처럼 꾸민 시안입니다. 제품명은 이탤릭 세리프(Instrument Serif), 가격은 굵은 디스플레이 세리프(Fraunces)로 씁니다. 얇은 가로선 하나로 정보와 가격을 나눕니다. 할인가지만 싸 보이지 않고 고급스럽게 보이는 방향입니다.</p><div class="zoom"><div class="row" data-t="A"></div></div></section>
+<section class="concept"><h2><b>B</b>쿠폰 티켓</h2><p class="desc">가격표 자체를 절취선과 홈이 있는 쿠폰처럼 만든 시안입니다. 오른쪽 스텁에는 <b>아낀 금액과 할인율</b>을 자동 계산해 넣습니다. "회원이라서 받는 혜택"이 한눈에 보입니다. 기존가가 없으면 스텁에 MEMBER ONLY가 들어갑니다.</p><div class="zoom"><div class="row" data-t="B"></div></div></section>
+<section class="concept"><h2><b>C</b>팝 스탬프</h2><p class="desc">개성 있는 그로테스크 서체(Bricolage Grotesque)로 가격을 가장 크게 씁니다. 오른쪽 위에는 기울어진 원형 도장으로 할인율을 찍습니다. 매대에서 가장 활기차 보이는 방향입니다.</p><div class="zoom"><div class="row" data-t="C"></div></div></section>
+<section class="concept"><h2><b>D</b>멤버십 카드</h2><p class="desc">OK Beauty 회원카드를 가격표로 옮긴 시안입니다. 그라데이션 카드, IC칩, 카드번호처럼 넓은 숫자(Archivo Expanded)를 씁니다. 멤버십이라는 메시지가 가장 직접적으로 전달됩니다.</p><div class="zoom"><div class="row" data-t="D"></div></div></section>
+
+<p class="notes">화면 확대 보기입니다(실제 크기 70×40mm). 글꼴은 모두 무료(Google Fonts)이며 파일 안에 포함되어 있습니다. 시안을 섞거나 일부만 가져가는 것도 가능합니다.</p>
+
+<script>
+const ANUA = '../../logos/anua.svg';
+const ITEMS = [
+  { brand: 'Anua', logo: ANUA, name: 'Rice Water Bright Cleansing Facial Wipes - Renew', regular: 29.00, member: 19.00 },
+  { brand: 'Beauty of Joseon', name: 'Relief Sun : Rice + Probiotics SPF50+ PA++++ Daily Sunscreen Value Pack Limited Edition', regular: 28.00, member: 19.60 },
+  { brand: 'COSRX', name: 'Advanced Snail 96 Mucin Power Essence', regular: null, member: 123.10 },
+];
+
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const money = v => '$' + v.toLocaleString('en-AU', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+const short = v => '$' + (Number.isInteger(v) ? v : v.toFixed(2));
+const logo = it => `<div class="logo">${it.logo ? `<img src="${it.logo}" alt="${esc(it.brand)}">` : `<span class="brand-text">${esc(it.brand)}</span>`}</div>`;
+const price = it => { const [w, d] = it.member.toFixed(2).split('.'); return `<div class="price"><span class="cur">$</span>${Number(w).toLocaleString('en-AU')}<span class="dec">.${d}</span></div>`; };
+const save = it => it.regular && it.regular > it.member ? { amt: Math.round((it.regular - it.member) * 100) / 100, pct: Math.round((1 - it.member / it.regular) * 100) } : null;
+const name = it => `<div class="product">${esc(it.name)}</div>`;
+
+const T = {
+  A: it => { const s = save(it); return `<div class="tag A on-brand">
+    <div class="head">${logo(it)}<span class="kicker">Members' price</span></div>${name(it)}
+    <div class="foot">${price(it)}<div class="side">${it.regular ? `<span class="was">was <s>${money(it.regular)}</s></span>` : ''}${s ? `<span class="save">save ${short(s.amt)}</span>` : `<span class="save">members only</span>`}</div></div></div>`; },
+  B: it => { const s = save(it); return `<div class="tag B"><div class="ticket">
+    <div class="main on-brand">${logo(it)}${name(it)}<span class="label">MEMBER PRICE ——</span>${price(it)}</div>
+    <div class="stub">${s ? `<span class="k">YOU SAVE</span><span class="amt">${short(s.amt)}</span><span class="pct">${s.pct}% OFF</span><span class="was">RRP<br><s>${money(it.regular)}</s></span>` : `<span class="only">MEMBER ONLY</span>`}</div></div></div>`; },
+  C: it => { const s = save(it); return `<div class="tag C on-brand">${logo(it)}${name(it)}
+    <div class="stamp"><svg viewBox="0 0 20 20"><defs><path id="r" d="M10,10 m-7.6,0 a7.6,7.6 0 1,1 15.2,0 a7.6,7.6 0 1,1 -15.2,0"/></defs>
+      <circle class="disc" cx="10" cy="10" r="10"/><circle class="ring" cx="10" cy="10" r="6"/>
+      <text class="around"><textPath href="#r" startOffset="0">MEMBER ✦ MEMBER ✦ MEMBER ✦ MEMBER ✦</textPath></text>
+      ${s ? `<text class="big" x="10" y="11.3" text-anchor="middle">${s.pct}%</text><text class="small" x="10" y="13.6" text-anchor="middle">OFF</text>`
+          : `<text class="big" x="10" y="12" text-anchor="middle" style="font-size:4.2px">OK!</text>`}
+    </svg></div>
+    ${it.regular ? `<div class="rrp"><b>RRP</b><s>${money(it.regular)}</s></div>` : '<div class="rrp"><b>MEMBER PRICE</b></div>'}${price(it)}</div>`; },
+  D: it => `<div class="tag D"><div class="card on-brand">
+    <div class="head">${logo(it)}<span class="tier">OK BEAUTY · MEMBER</span></div>${name(it)}
+    <div class="mid"><span class="chip"></span><span class="lbl">MEMBER PRICE</span>${it.regular ? `<span class="was">RRP <s>${money(it.regular)}</s></span>` : ''}</div>
+    ${price(it)}</div></div>`,
+};
+document.querySelectorAll('[data-t]').forEach(row => { row.innerHTML = ITEMS.map(T[row.dataset.t]).join(''); });
+
+// 가격이 자리를 넘으면 줄인다 (옆 요소와 겹치지 않게)
+function fit() {
+  document.querySelectorAll('.price').forEach(p => {
+    p.style.fontSize = '';
+    const tag = p.closest('.tag');
+    const limit = () => {
+      const side = p.parentElement.querySelector('.side');
+      const box = (p.closest('.main') || p.closest('.card') || tag).getBoundingClientRect();
+      return side ? side.getBoundingClientRect().left - 4 : box.right - 6;
+    };
+    let size = parseFloat(getComputedStyle(p).fontSize);
+    while (p.getBoundingClientRect().right > limit() && size > 20) { size -= 1; p.style.fontSize = size + 'px'; }
+  });
+}
+
+function lum(hex) {
+  const v = [1, 3, 5].map(i => parseInt(hex.slice(i, i + 2), 16) / 255).map(c => c <= .03928 ? c / 12.92 : ((c + .055) / 1.055) ** 2.4);
+  return .2126 * v[0] + .7152 * v[1] + .0722 * v[2];
+}
+function setColor(hex) {
+  if (!/^#[0-9a-f]{6}$/i.test(hex)) return;
+  const L = lum(hex), white = 1.05 / (L + .05), black = (L + .05) / (lum('#16150F') + .05);
+  const useWhite = white >= 3 || white >= black;
+  const r = document.documentElement.style;
+  r.setProperty('--brand', hex);
+  r.setProperty('--on-brand', useWhite ? '#fff' : '#16150F');
+  r.setProperty('--logo-invert', useWhite ? 1 : 0);
+  r.setProperty('--brand-ink', useWhite ? hex : '#16150F');   // 흰 도장 위 글자
+  document.getElementById('c').value = hex; document.getElementById('hex').value = hex.toUpperCase();
+  try { localStorage.setItem('okb-brand', hex); } catch (e) {}
+}
+document.getElementById('c').addEventListener('input', e => setColor(e.target.value));
+document.getElementById('hex').addEventListener('input', e => setColor(e.target.value.startsWith('#') ? e.target.value : '#' + e.target.value));
+document.querySelectorAll('.swatch').forEach(s => s.addEventListener('click', () => setColor(s.dataset.c)));
+const q = new URLSearchParams(location.search).get('color');
+let saved = null; try { saved = localStorage.getItem('okb-brand'); } catch (e) {}
+setColor(q ? '#' + q.replace('#', '') : saved || '#E63E6D');
+(document.fonts ? document.fonts.ready : Promise.resolve()).then(fit);
+</script>
+</body>
+</html>
